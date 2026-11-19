@@ -6,6 +6,7 @@
 # John DeNero (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # For more info, see http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
 
+import os, json
 import random
 import contest.util as util
 
@@ -13,6 +14,11 @@ from contest.capture_agents import CaptureAgent
 from contest.game import Directions, Actions
 from contest.util import nearest_point
 
+# Load / save weights file from "weights.json", in the same
+# directory as my_team.py
+this_filepath = os.path.abspath(__file__)
+folder = os.path.dirname(this_filepath)
+WEIGHTS_FILE = os.path.join(folder, "weights.json")
 
 #################
 # Team creation #
@@ -120,7 +126,6 @@ class ReflexCaptureAgent(CaptureAgent):
         """
         return {'successor_score': 1.0}
 
-
 class OffensiveReflexAgent(ReflexCaptureAgent):
     """
   A reflex agent that seeks food. This is an agent
@@ -144,7 +149,6 @@ class OffensiveReflexAgent(ReflexCaptureAgent):
 
     def get_weights(self, game_state, action):
         return {'successor_score': 100, 'distance_to_food': -1}
-
 
 class DefensiveReflexAgent(ReflexCaptureAgent):
     """
@@ -184,11 +188,12 @@ class DefensiveReflexAgent(ReflexCaptureAgent):
 
 class ApproxQAgent(ReflexCaptureAgent):
 
-    def __init__(self, index, num_training, time_for_computing=.1, lrate=0.01, discount=0.9, epsilon=0.1):
+    def __init__(self, index, num_training, verbose=True, time_for_computing=.1, lrate=0.01, discount=0.9, epsilon=0.1):
         super().__init__(index, time_for_computing) 
         self.start = None                           # Should I keep this line? When is it used? My guess: yes, bc we need it in register_initial_state
         
-        self.weights = util.Counter()          # All weights initialized to 0 (what are the keys of this dict?)
+        self.weights = util.Counter()          # All weights initialized to 0 (keys of this dict are the names of each feature)
+        self.load_weights(verbose=verbose)                    # Load weights from file, or apply warm start
         self.lrate = float(lrate)              # Learning rate, controls how big each weight update is
         self.discount = float(discount)        # Discount, controls how much future rewards matter
         self.epsilon = float(epsilon)          # Epsilon, controls how much agent explores new paths (higher = more exploration)
@@ -203,17 +208,44 @@ class ApproxQAgent(ReflexCaptureAgent):
 
         # Need to remember previous action to update weights
         self.prev_action = None
+        
+        # If we are in the tournament, don't explore or train
+        if not self.is_in_training():
+            self.epsilon = 0.0      
+            self.lrate = 0.0
 
         # Show the hyperparameters of this run
-        print(f"ApproxQAgent (index {self.index}): lrate={self.lrate}, epsilon={self.epsilon}, "
-              f"discount={self.discount}, num_training={self.num_training}")
-        
-        # Warm start: initialize weights to reasonable values instead of 0
-        self.weights['bias'] = 0
-        self.weights['eats_food'] = 1           # eating food is good
-        self.weights['distance_to_food'] = -1   # food far away is bad
-        self.weights['ghosts_1_step_away'] = -1 # dangerous ghosts close is bad
+        if verbose:
+            print(f"ApproxQAgent (index {self.index}): lrate={self.lrate}, epsilon={self.epsilon}, "
+              f"discount={self.discount}, num_training={self.num_training}")     
 
+    def save_weights(self):
+        """Save current weights to a JSON file.
+        Creates file if it doesn't exsist, otherwise overwrites it."""
+        
+        with open(WEIGHTS_FILE, "w") as f:
+            json.dump(dict(self.weights), f,
+                    indent=2)             # To make it human-readable
+        
+    def load_weights(self, verbose):
+        """Load weights from a JSON file"""
+
+        if os.path.exists(WEIGHTS_FILE):
+            if verbose:
+                print(f"Loading weights from {WEIGHTS_FILE}")
+            with open(WEIGHTS_FILE, "r") as f:
+                weights_dict = json.load(f)
+                self.weights = util.Counter(weights_dict)
+
+        else:
+            if verbose:
+                print(f"No weights found, initalizing weights manually")
+            # Warm start: initialize weights to reasonable values instead of 0
+            self.weights['bias'] = 0
+            self.weights['eats_food'] = 1           # eating food is good
+            self.weights['distance_to_food'] = -1   # food far away is bad
+            self.weights['ghosts_1_step_away'] = -1 # dangerous ghosts close is bad
+        
     def is_in_training(self):
         return self.episodes_so_far < self.num_training
 
@@ -350,10 +382,7 @@ class ApproxQAgent(ReflexCaptureAgent):
         square that `action` takes me to within one move (0, 1 or 2)."""
 
         # Compute the square this action leads to directly from my current
-        # position. Don't read it from get_successor(): the simulator applies
-        # collisions, so if the move walks INTO a ghost my position in the
-        # successor is already reset to my spawn, and the most dangerous
-        # move of all would look perfectly safe
+        # position.
         my_pos = game_state.get_agent_position(self.index)
         next_x, next_y = Actions.get_successor(my_pos, action)
         next_pos = (int(next_x), int(next_y))
@@ -477,10 +506,6 @@ class ApproxQAgent(ReflexCaptureAgent):
     def final(self, state):
         "Called at the end of each game."
 
-        # TODO: I don't understand why we have to do one last update
-        # This is called only when the game ends right?
-        # At this point we training has finished
-
         # Call the super-class final method
         super().final(state)
 
@@ -492,6 +517,9 @@ class ApproxQAgent(ReflexCaptureAgent):
             print(f"TRAIN - weights: {self.weights}")
             print(f"TRAIN- Reward: {self.episode_rewards}")
             print(f"TRAIN- Accumulated reward: {self.accum_train_rewards}")
+            
+            self.save_weights()
+            print(f"Saved weights to {WEIGHTS_FILE}")
         else:
             print(f"TEST - weights: {self.weights}")
             print(f"TEST- Reward: {self.episode_rewards}")

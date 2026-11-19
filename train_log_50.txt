@@ -1,0 +1,299 @@
+
+Red team ../../../my_team.py with {'num_training': 50}:
+Loading agent team: /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/my_team.py
+	Arguments: {'num_training': 50}
+No weights found, initalizing weights manually
+ApproxQAgent (index 0): lrate=0.01, epsilon=0.1, discount=0.9, num_training=50
+
+Blue team baseline_team with {'num_training': 50}:
+Loading agent team: /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/pacman-contest/src/contest/baseline_team.py
+	Arguments: {'num_training': 50}
+{'display': <contest.text_display.NullGraphics object at 0x7f3f513b5c40>, 'red_team_name': 'Red', 'blue_team_name': 'Blue', 'agents': [<my_team.ApproxQAgent object at 0x7f3f51306f40>, <baseline_team.OffensiveReflexAgent object at 0x7f3f51319d30>, <my_team.DefensiveReflexAgent object at 0x7f3f512f5880>, <baseline_team.DefensiveReflexAgent object at 0x7f3f51319d60>], 'layouts': [<contest.layout.Layout object at 0x7f3f51319a90>, <contest.layout.Layout object at 0x7f3f51319d00>, <contest.layout.Layout object at 0x7f3f51319d90>, <contest.layout.Layout object at 0x7f3f512ad0d0>, <contest.layout.Layout object at 0x7f3f512ad1c0>, <contest.layout.Layout object at 0x7f3f512ad2b0>, <contest.layout.Layout object at 0x7f3f512ad3a0>, <contest.layout.Layout object at 0x7f3f512ad490>, <contest.layout.Layout object at 0x7f3f512ad580>, <contest.layout.Layout object at 0x7f3f512ad670>, <contest.layout.Layout object at 0x7f3f512ad760>, <contest.layout.Layout object at 0x7f3f512ad850>, <contest.layout.Layout object at 0x7f3f512ad940>, <contest.layout.Layout object at 0x7f3f512ada30>, <contest.layout.Layout object at 0x7f3f512adb20>, <contest.layout.Layout object at 0x7f3f512adc10>, <contest.layout.Layout object at 0x7f3f512add00>, <contest.layout.Layout object at 0x7f3f512addf0>, <contest.layout.Layout object at 0x7f3f512adee0>, <contest.layout.Layout object at 0x7f3f512adfd0>, <contest.layout.Layout object at 0x7f3f51272100>, <contest.layout.Layout object at 0x7f3f512721f0>, <contest.layout.Layout object at 0x7f3f512722e0>, <contest.layout.Layout object at 0x7f3f512723d0>, <contest.layout.Layout object at 0x7f3f512724c0>, <contest.layout.Layout object at 0x7f3f512725b0>, <contest.layout.Layout object at 0x7f3f512726a0>, <contest.layout.Layout object at 0x7f3f51272790>, <contest.layout.Layout object at 0x7f3f51272880>, <contest.layout.Layout object at 0x7f3f51272970>, <contest.layout.Layout object at 0x7f3f51272a60>, <contest.layout.Layout object at 0x7f3f51272b50>, <contest.layout.Layout object at 0x7f3f51272c40>, <contest.layout.Layout object at 0x7f3f51272d30>, <contest.layout.Layout object at 0x7f3f51272e20>, <contest.layout.Layout object at 0x7f3f51272f10>, <contest.layout.Layout object at 0x7f3f51272fd0>, <contest.layout.Layout object at 0x7f3f51236130>, <contest.layout.Layout object at 0x7f3f51236220>, <contest.layout.Layout object at 0x7f3f51236310>, <contest.layout.Layout object at 0x7f3f51236400>, <contest.layout.Layout object at 0x7f3f512364f0>, <contest.layout.Layout object at 0x7f3f512365e0>, <contest.layout.Layout object at 0x7f3f512366d0>, <contest.layout.Layout object at 0x7f3f512367c0>, <contest.layout.Layout object at 0x7f3f512368b0>, <contest.layout.Layout object at 0x7f3f512369a0>, <contest.layout.Layout object at 0x7f3f51236a90>, <contest.layout.Layout object at 0x7f3f51236b80>, <contest.layout.Layout object at 0x7f3f51236c70>, <contest.layout.Layout object at 0x7f3f51236d60>, <contest.layout.Layout object at 0x7f3f51236e50>, <contest.layout.Layout object at 0x7f3f51236f40>, <contest.layout.Layout object at 0x7f3f513b5c70>, <contest.layout.Layout object at 0x7f3f511f9160>], 'length': 1200, 'num_games': 55, 'num_training': 50, 'record': False, 'catch_exceptions': False, 'delay_step': 0.03, 'match_id': 0, 'contest_name': 'default'}
+Playing 50 training games
+Red team starts
+TRAIN - weights: {'bias': -0.43812612539362883, 'eats_food': 1.0059123163183434, 'distance_to_food': -1.0071772628678082, 'ghosts_1_step_away': -1.456604543870849, 'next_state_score': 0.012904316740429743}
+TRAIN- Reward: -49.94999999999983
+TRAIN- Accumulated reward: -49.94999999999983
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -0.4490314201696017, 'eats_food': 1.1117416624402312, 'distance_to_food': -1.013909290280839, 'ghosts_1_step_away': -1.7674851902109554, 'next_state_score': 0.01266105204795176}
+TRAIN- Reward: -16.95000000000013
+TRAIN- Accumulated reward: -66.89999999999898
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.765024261778367, 'eats_food': 1.13200854590431, 'distance_to_food': -1.01683703543713, 'ghosts_1_step_away': -2.25440064945952, 'next_state_score': 0.01759173203389561}
+TRAIN- Reward: -52.95000000000005
+TRAIN- Accumulated reward: -119.84999999999813
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.0298243491990262, 'eats_food': 1.2275499457749663, 'distance_to_food': -1.0419874990701161, 'ghosts_1_step_away': -2.9098107271203797, 'next_state_score': 0.025583964006683637}
+TRAIN- Reward: -54.94999999999983
+TRAIN- Accumulated reward: -174.79999999999967
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.157289449118811, 'eats_food': 1.2245670521322896, 'distance_to_food': -1.0685539351476305, 'ghosts_1_step_away': -3.3101866686160744, 'next_state_score': 0.032002026949274516}
+TRAIN- Reward: -38.50000000000003
+TRAIN- Accumulated reward: -213.30000000000206
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.1999499540859557, 'eats_food': 1.2271721990645268, 'distance_to_food': -1.072244789741298, 'ghosts_1_step_away': -3.756090645706883, 'next_state_score': 0.028983103168086746}
+TRAIN- Reward: -47.94999999999979
+TRAIN- Accumulated reward: -261.25000000000546
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.2089473075461266, 'eats_food': 1.242855869223336, 'distance_to_food': -1.072286155161492, 'ghosts_1_step_away': -4.188443589606371, 'next_state_score': 0.019741545036082157}
+TRAIN- Reward: -44.949999999999754
+TRAIN- Accumulated reward: -306.20000000000886
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.3401093129817456, 'eats_food': 1.2110030276660801, 'distance_to_food': -1.0899650455099206, 'ghosts_1_step_away': -4.679440759456394, 'next_state_score': 0.021620328949320776}
+TRAIN- Reward: -52.94999999999983
+TRAIN- Accumulated reward: -359.15000000001226
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.3820020115259852, 'eats_food': 1.140625737350927, 'distance_to_food': -1.0865438079780467, 'ghosts_1_step_away': -4.98751885201358, 'next_state_score': 0.018243710691182486}
+TRAIN- Reward: -41.69999999999997
+TRAIN- Accumulated reward: -400.85000000001514
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.1723287601564498, 'eats_food': 1.275654457304847, 'distance_to_food': -1.0813132648176769, 'ghosts_1_step_away': -5.2450118654649085, 'next_state_score': 0.008836614194511191}
+TRAIN- Reward: -17.949999999999918
+TRAIN- Accumulated reward: -418.80000000001854
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.9048920602758491, 'eats_food': 1.2735199086462976, 'distance_to_food': -1.079657728118794, 'ghosts_1_step_away': -5.282506099770587, 'next_state_score': 0.003613378692957371}
+TRAIN- Reward: 3.3499999999999526
+TRAIN- Accumulated reward: -415.4500000000212
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.1168745085167817, 'eats_food': 1.2170328421466192, 'distance_to_food': -1.0780349101343547, 'ghosts_1_step_away': -5.7093662196054, 'next_state_score': 0.0038081068436088116}
+TRAIN- Reward: -49.94999999999973
+TRAIN- Accumulated reward: -465.4000000000246
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.276090684468067, 'eats_food': 1.2300061864585585, 'distance_to_food': -1.0767413563673758, 'ghosts_1_step_away': -6.137621069305144, 'next_state_score': 0.0035529789408607873}
+TRAIN- Reward: -57.949999999999875
+TRAIN- Accumulated reward: -523.3500000000266
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.8827178581103552, 'eats_food': 1.1308800039365563, 'distance_to_food': -1.0684492805703927, 'ghosts_1_step_away': -6.235538089747256, 'next_state_score': -0.006673772707289095}
+TRAIN- Reward: 8.049999999999935
+TRAIN- Accumulated reward: -515.3000000000181
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -0.9653873382753222, 'eats_food': 1.1612772770900597, 'distance_to_food': -1.0650320261635522, 'ghosts_1_step_away': -6.584135774317916, 'next_state_score': -0.015405021001193696}
+TRAIN- Reward: -34.94999999999985
+TRAIN- Accumulated reward: -550.250000000005
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.147687665935126, 'eats_food': 1.2349825166994326, 'distance_to_food': -1.0814805700445926, 'ghosts_1_step_away': -7.110603519921649, 'next_state_score': -0.018155055601611132}
+TRAIN- Reward: -60.94999999999979
+TRAIN- Accumulated reward: -611.1999999999914
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.8814977090428004, 'eats_food': 1.1744817482314465, 'distance_to_food': -1.0815629828623423, 'ghosts_1_step_away': -7.157427561042168, 'next_state_score': -0.026217463403026123}
+TRAIN- Reward: -9.950000000000081
+TRAIN- Accumulated reward: -621.1499999999778
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -0.8840911135891756, 'eats_food': 1.1449523850720913, 'distance_to_food': -1.0801980584191795, 'ghosts_1_step_away': -7.392246112215243, 'next_state_score': -0.029533712595303217}
+TRAIN- Reward: -48.9500000000001
+TRAIN- Accumulated reward: -670.0999999999642
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.0181347403959513, 'eats_food': 1.217892116049638, 'distance_to_food': -1.0903966350748673, 'ghosts_1_step_away': -7.771342891558111, 'next_state_score': -0.026731110081081966}
+TRAIN- Reward: -58.94999999999983
+TRAIN- Accumulated reward: -729.0499999999506
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.1614631328715948, 'eats_food': 1.2253877242140256, 'distance_to_food': -1.087235879548204, 'ghosts_1_step_away': -8.144149853321546, 'next_state_score': -0.03406387220022511}
+TRAIN- Reward: -33.04999999999996
+TRAIN- Accumulated reward: -762.0999999999415
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.2263510903244332, 'eats_food': 1.2302765074622308, 'distance_to_food': -1.0873379163379229, 'ghosts_1_step_away': -8.562486937938719, 'next_state_score': -0.04038015664322247}
+TRAIN- Reward: -53.94999999999981
+TRAIN- Accumulated reward: -816.0499999999279
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.3055779934808633, 'eats_food': 1.2871080079141353, 'distance_to_food': -1.0876757729604993, 'ghosts_1_step_away': -8.911469791231337, 'next_state_score': -0.04387112397592573}
+TRAIN- Reward: -50.949999999999804
+TRAIN- Accumulated reward: -866.9999999999143
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.1781020961870365, 'eats_food': 1.2597764086907977, 'distance_to_food': -1.0823027336808722, 'ghosts_1_step_away': -9.112416083635036, 'next_state_score': -0.0525408238818543}
+TRAIN- Reward: -52.94999999999976
+TRAIN- Accumulated reward: -919.9499999999007
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.2083442638567836, 'eats_food': 1.2098476436741628, 'distance_to_food': -1.1118342421311191, 'ghosts_1_step_away': -9.524478603413185, 'next_state_score': -0.04877662174616811}
+TRAIN- Reward: -56.85000000000001
+TRAIN- Accumulated reward: -976.7999999998872
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.3017406126750422, 'eats_food': 1.2393326856767046, 'distance_to_food': -1.1105747930534153, 'ghosts_1_step_away': -9.865259905444498, 'next_state_score': -0.05361061616136691}
+TRAIN- Reward: -47.949999999999704
+TRAIN- Accumulated reward: -1024.7499999998736
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.3056992406303167, 'eats_food': 1.2733496426399118, 'distance_to_food': -1.126178351875725, 'ghosts_1_step_away': -10.18893356822251, 'next_state_score': -0.05273046546884705}
+TRAIN- Reward: -60.949999999999875
+TRAIN- Accumulated reward: -1085.69999999986
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.223001162419222, 'eats_food': 1.218195394798755, 'distance_to_food': -1.1262210144144744, 'ghosts_1_step_away': -10.195952370472016, 'next_state_score': -0.05726318278086757}
+TRAIN- Reward: -50.949999999999775
+TRAIN- Accumulated reward: -1136.6499999998464
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.03865657819683, 'eats_food': 1.210755446428626, 'distance_to_food': -1.1227034335946304, 'ghosts_1_step_away': -10.300295186737557, 'next_state_score': -0.06467682741243311}
+TRAIN- Reward: -26.94999999999991
+TRAIN- Accumulated reward: -1163.5999999998328
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.1327064461601914, 'eats_food': 1.274191482054531, 'distance_to_food': -1.1230748335158522, 'ghosts_1_step_away': -10.737894865173974, 'next_state_score': -0.07350145952305755}
+TRAIN- Reward: -57.95000000000003
+TRAIN- Accumulated reward: -1221.5499999998192
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.2948153342714432, 'eats_food': 1.2604754183068916, 'distance_to_food': -1.142203456595784, 'ghosts_1_step_away': -11.221297205736352, 'next_state_score': -0.07295186590749328}
+TRAIN- Reward: -60.94999999999983
+TRAIN- Accumulated reward: -1282.4999999998056
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.2335837276763733, 'eats_food': 0.9682844205583259, 'distance_to_food': -1.1374650886791942, 'ghosts_1_step_away': -11.211047506163895, 'next_state_score': -0.07797641468752198}
+TRAIN- Reward: -46.94999999999983
+TRAIN- Accumulated reward: -1329.449999999792
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.3123241290050562, 'eats_food': 0.9115861496119029, 'distance_to_food': -1.1345729468117556, 'ghosts_1_step_away': -11.300254028332583, 'next_state_score': -0.07908430522756163}
+TRAIN- Reward: -51.94999999999985
+TRAIN- Accumulated reward: -1381.3999999997784
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.0882296202654282, 'eats_food': 0.8431374212154961, 'distance_to_food': -1.1203324660349103, 'ghosts_1_step_away': -11.246534348414587, 'next_state_score': -0.08955749549910566}
+TRAIN- Reward: -38.94999999999988
+TRAIN- Accumulated reward: -1420.3499999997648
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.115292985254108, 'eats_food': 1.0291662481346517, 'distance_to_food': -1.1213334697435262, 'ghosts_1_step_away': -11.574762507572936, 'next_state_score': -0.0941126788907115}
+TRAIN- Reward: -48.94999999999969
+TRAIN- Accumulated reward: -1469.2999999997512
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.20564937427172, 'eats_food': 1.1210061291637219, 'distance_to_food': -1.1242158427515356, 'ghosts_1_step_away': -12.002154595221546, 'next_state_score': -0.1024360118847334}
+TRAIN- Reward: -52.949999999999925
+TRAIN- Accumulated reward: -1522.2499999997376
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.2631882065340017, 'eats_food': 1.0044405076040404, 'distance_to_food': -1.1257447132555853, 'ghosts_1_step_away': -12.347793687549682, 'next_state_score': -0.1065083181980297}
+TRAIN- Reward: -55.94999999999979
+TRAIN- Accumulated reward: -1578.199999999724
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.0295449876600828, 'eats_food': 1.0673545249703658, 'distance_to_food': -1.1240014357805443, 'ghosts_1_step_away': -12.408683585127694, 'next_state_score': -0.11623548725629113}
+TRAIN- Reward: -52.94999999999972
+TRAIN- Accumulated reward: -1631.1499999997104
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -0.7930373899256847, 'eats_food': 0.9682355689652353, 'distance_to_food': -1.1143306676327867, 'ghosts_1_step_away': -12.327778841996574, 'next_state_score': -0.12552502242703867}
+TRAIN- Reward: -35.95
+TRAIN- Accumulated reward: -1667.0999999996968
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.9734220665213318, 'eats_food': 0.8379727292299777, 'distance_to_food': -1.1168749821195885, 'ghosts_1_step_away': -12.510839291991047, 'next_state_score': -0.12878244211777173}
+TRAIN- Reward: -58.94999999999986
+TRAIN- Accumulated reward: -1726.0499999996832
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.12726503172716, 'eats_food': 0.8133544855464864, 'distance_to_food': -1.1175951887887596, 'ghosts_1_step_away': -12.96342422569087, 'next_state_score': -0.13518937967274386}
+TRAIN- Reward: -59.94999999999985
+TRAIN- Accumulated reward: -1785.9999999996696
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.1154810225060265, 'eats_food': 0.7559522561408403, 'distance_to_food': -1.1131793480476597, 'ghosts_1_step_away': -12.906458995220552, 'next_state_score': -0.13914164434256737}
+TRAIN- Reward: -47.94999999999985
+TRAIN- Accumulated reward: -1833.949999999656
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.8862902035939284, 'eats_food': 0.8465629799488953, 'distance_to_food': -1.1043559400372671, 'ghosts_1_step_away': -12.887456676530528, 'next_state_score': -0.15041115094789526}
+TRAIN- Reward: -49.94999999999982
+TRAIN- Accumulated reward: -1883.8999999996424
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.8297898042458463, 'eats_food': 0.9766176540663075, 'distance_to_food': -1.1000012872815172, 'ghosts_1_step_away': -13.008913918772269, 'next_state_score': -0.16023033580269852}
+TRAIN- Reward: -35.949999999999726
+TRAIN- Accumulated reward: -1919.8499999996288
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -0.7384521078302428, 'eats_food': 1.0160553427861345, 'distance_to_food': -1.099951659823835, 'ghosts_1_step_away': -13.000608545015725, 'next_state_score': -0.16453721574737926}
+TRAIN- Reward: -18.94999999999991
+TRAIN- Accumulated reward: -1938.7999999996152
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -0.8376210788207583, 'eats_food': 0.8459017314991543, 'distance_to_food': -1.1035133118236349, 'ghosts_1_step_away': -13.020814744728135, 'next_state_score': -0.1635550706114951}
+TRAIN- Reward: -51.949999999999875
+TRAIN- Accumulated reward: -1990.7499999996016
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.293085291842229, 'eats_food': 0.8521118386121322, 'distance_to_food': -1.139701304943877, 'ghosts_1_step_away': -13.533760755213317, 'next_state_score': -0.1606560299613657}
+TRAIN- Reward: -73.94999999999992
+TRAIN- Accumulated reward: -2064.6999999995924
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.3094690939719704, 'eats_food': 1.0651544125892147, 'distance_to_food': -1.1375351299893426, 'ghosts_1_step_away': -13.897867027431419, 'next_state_score': -0.16853253082746453}
+TRAIN- Reward: -55.94999999999976
+TRAIN- Accumulated reward: -2120.6499999996468
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Red team starts
+TRAIN - weights: {'bias': -1.2110282114210555, 'eats_food': 0.970568224452453, 'distance_to_food': -1.1329590919284738, 'ghosts_1_step_away': -13.724326012549751, 'next_state_score': -0.17518533217745066}
+TRAIN- Reward: -50.94999999999986
+TRAIN- Accumulated reward: -2171.599999999701
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.4725299305892972, 'eats_food': 1.1446138506168255, 'distance_to_food': -1.1318687258276758, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.1819101241144586}
+TRAIN- Reward: -64.94999999999966
+TRAIN- Accumulated reward: -2236.5499999997555
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+TRAIN - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TRAIN- Reward: 10.349999999999993
+TRAIN- Accumulated reward: -2226.1999999997834
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/weights.json
+Blue team starts
+Time is up.
+Tie game!
+TEST - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TEST- Reward: -62.949999999999775
+TEST- Accumulated reward: -62.949999999999775
+Blue team starts
+Time is up.
+Tie game!
+TEST - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TEST- Reward: -69.94999999999973
+TEST- Accumulated reward: -132.89999999999927
+Red team starts
+Time is up.
+Tie game!
+TEST - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TEST- Reward: -37.94999999999973
+TEST- Accumulated reward: -170.85000000000267
+Red team starts
+Time is up.
+Tie game!
+TEST - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TEST- Reward: -22.950000000000173
+TEST- Accumulated reward: -193.80000000000607
+Red team starts
+Time is up.
+Tie game!
+TEST - weights: {'bias': -1.1614108309364202, 'eats_food': 1.1625599439277696, 'distance_to_food': -1.1291978947786983, 'ghosts_1_step_away': -14.15506141243992, 'next_state_score': -0.18944667630071776}
+TEST- Reward: -28.94999999999987
+TEST- Accumulated reward: -222.75000000000946
+Average Score: 0.0
+Scores:        0, 0, 0, 0, 0
+Red Win Rate:  0/5 (0.00)
+Blue Win Rate: 0/5 (0.00)
+Record:        Tie, Tie, Tie, Tie, Tie
+
+Total Time Game: 2062.0

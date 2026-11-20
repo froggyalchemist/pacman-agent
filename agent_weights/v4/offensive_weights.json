@@ -1,0 +1,9 @@
+{
+  "bias": -1.43173804978953,
+  "successor_score": 0.8809165709996799,
+  "ghosts_1_step_away": -5.395262577211066,
+  "distance_to_ghost": 1.9924453453267423,
+  "distance_to_scared_ghost": -1.0139818168924752,
+  "distance_to_food": -2.0335959819411573,
+  "is_home": 2.4865448377923243
+}

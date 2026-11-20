@@ -18,6 +18,7 @@ from contest.util import nearest_point
 # (each agent class defines its own file name)
 this_filepath = os.path.abspath(__file__)
 FOLDER = os.path.dirname(this_filepath)
+FOLDER = os.path.join(FOLDER + "/agent_weights/")
 
 # Enemies are only visible within 5 squares, so ghost distances are capped at this
 GHOST_VISION = 5
@@ -208,7 +209,7 @@ class ApproxQAgent(ReflexCaptureAgent):
 
     WEIGHTS_FILENAME = None    # Each subclass has its own file, since they use different features
 
-    def __init__(self, index, num_training=0, verbose=True, time_for_computing=.1, lrate=0.01, discount=0.9, epsilon=0.1):
+    def __init__(self, index, num_training=0, verbose=True, time_for_computing=.1, lrate=0.05, discount=0.9, epsilon=0.1):
         super().__init__(index, time_for_computing)
         self.start = None                      # My spawn position, set in register_initial_state
         self.home_border = []                  # Squares on my side of the border, set in register_initial_state
@@ -397,6 +398,7 @@ class ApproxQAgent(ReflexCaptureAgent):
         self.prev_action = None
 
         # print weights & reward here for debugging
+        print(f"🏁 Game {self.episodes_so_far} finished")
         name = type(self).__name__
         if self.is_in_training():
             print(f"{name} TRAIN - weights: {self.weights}")
@@ -489,13 +491,18 @@ class OffensiveApproxQAgent(ApproxQAgent):
     """
     Approximate Q-learning agent that attacks: eats enemy food, avoids
     ghosts and brings the food back home.
+    Features based on blog post by Matthias Bachfischer:
+    https://bachfischer.me/posts/2021/02/reflections_on_pacman_ai_competition/
     """
 
+    # NOTE: when we compete in the contest we cannot import external files, we should
+    # write down the weights here
     WEIGHTS_FILENAME = "offensive_weights.json"
 
-    def __init__(self, index, carry_limit=5, power_limit=5, **kwargs):
+    def __init__(self, index, carry_limit=3, power_limit=5, **kwargs):
         # Carry limit: once I carry this much food, my target changes from food to home
         self.carry_limit = int(carry_limit)
+
         # Power limit: a scared ghost is only safe if it stays scared for MORE than
         # this many moves. Below that it's about to recover, so treat it as dangerous
         self.power_limit = int(power_limit)
@@ -509,8 +516,9 @@ class OffensiveApproxQAgent(ApproxQAgent):
             'bias': 0.0,
             'successor_score': 1.0,        # eating food is good
             'ghosts_1_step_away': -5.0,    # a ghost next to me means I'm about to die
-            'distance_to_ghost': 1.0,      # being far from ghosts is good
-            'distance_to_food': -1.0,      # far from my target (food, or home) is bad
+            'distance_to_ghost': 2.0,      # being far from ghosts is good
+            'distance_to_scared_ghost': -1.0,      # being far from scared ghosts is bad
+            'distance_to_food': -2.0,      # far from my target (food, or home) is bad
             'is_home': 2.0,                # bringing food home is good
         }
 
@@ -540,7 +548,9 @@ class OffensiveApproxQAgent(ApproxQAgent):
 
         # Feature 2: distance to the closest dangerous ghost, scaled by layout size.
         # Capped at GHOST_VISION: further than that, or no ghost in sight, all look the same
-        features['distance_to_ghost'] = self.get_dist_to_closest_ghost(game_state, next_pos) / layout_size
+        features['distance_to_ghost'] = self.get_dist_to_closest_ghost(game_state, next_pos, type='dangerous') / layout_size
+        
+        features['distance_to_scared_ghost'] = self.get_dist_to_closest_ghost(game_state, next_pos, type='scared') / layout_size
 
         # Feature 3: successor_score: this action eats a pellet.
         # Not if a ghost is next to it: that pellet isn't worth dying for, and
@@ -590,6 +600,29 @@ class OffensiveApproxQAgent(ApproxQAgent):
             ghost_positions.append(opp_pos)
 
         return ghost_positions
+    
+    def get_scared_ghosts(self, game_state):
+        """Returns the positions of visible enemy ghosts that I can eat"""
+
+        scared_ghost_positions = []
+        for opp in self.get_opponents(game_state):
+            opp_state = game_state.get_agent_state(opp)
+            opp_pos = opp_state.get_position()
+
+            # Can't see it (more than 5 squares away)
+            if opp_pos is None:
+                continue
+
+            # An enemy Pacman is on MY side and can't eat me; only ghosts can
+            if opp_state.is_pacman:
+                continue
+
+            # Scared for long enough: safe to approach (power limit)
+            scared_for_long_enough = opp_state.scared_timer > self.power_limit
+            if scared_for_long_enough:
+                scared_ghost_positions.append(opp_pos)
+
+        return scared_ghost_positions
 
     def count_ghosts_1_step_away(self, game_state, next_pos):
         """Returns how many dangerous ghosts could reach `next_pos` within one move (0, 1 or 2)"""
@@ -603,10 +636,15 @@ class OffensiveApproxQAgent(ApproxQAgent):
         ghosts = self.get_dangerous_ghosts(game_state)
         return sum(1 for ghost_pos in ghosts if self.get_maze_distance(next_pos, ghost_pos) <= 1)
 
-    def get_dist_to_closest_ghost(self, game_state, next_pos):
+    def get_dist_to_closest_ghost(self, game_state, next_pos, type):
         """Maze distance from `next_pos` to the closest dangerous ghost, capped at GHOST_VISION"""
 
-        ghosts = self.get_dangerous_ghosts(game_state)
+        if type == "dangerous":
+            ghosts = self.get_dangerous_ghosts(game_state)
+        elif type == "scared":
+            ghosts = self.get_scared_ghosts(game_state)
+        else:
+            raise AttributeError("type should be 'dangerous' or 'scared'")
 
         # On my side ghosts can't hurt me, and with no ghost in sight there's
         # nothing to run from: both count as "as far as I can see"
@@ -662,8 +700,19 @@ class OffensiveApproxQAgent(ApproxQAgent):
             n_lost_pellets = my_prev_state.num_carrying - my_curr_state.num_carrying
             reward -= 2 * n_lost_pellets + base_penalty
 
+        # +3 add reward for eating a capsule
+        ate_capsule = self.get_capsules(curr_state) < self.get_capsules(prev_state)
+        if ate_capsule:
+            reward += 3
+
         # -0.05 Every step to penalize useless moves
         reward -= 0.05
+
+        # -1 Penalty for repeating the same action
+        my_prev_position = prev_state.get_agent_state(self.index).get_position()
+        my_curr_position = curr_state.get_agent_state(self.index).get_position()
+        if my_prev_position == my_curr_position:
+            reward -= 1
 
         return reward
 
@@ -672,6 +721,8 @@ class DefensiveApproxQAgent(ApproxQAgent):
     """
     Approximate Q-learning agent that defends: guards the middle of the border,
     chases invaders and keeps its distance from them while scared.
+    Features based on blog post by Matthias Bachfischer:
+    https://bachfischer.me/posts/2021/02/reflections_on_pacman_ai_competition/
     """
 
     WEIGHTS_FILENAME = "defensive_weights.json"

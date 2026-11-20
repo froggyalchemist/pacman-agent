@@ -1,0 +1,138 @@
+
+Red team ../../../my_team.py with {'num_training': 10}:
+Loading agent team: /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/my_team.py
+	Arguments: {'num_training': 10}
+Loading weights from /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+OffensiveApproxQAgent (index 0): lrate=0.01, epsilon=0.1, discount=0.9, num_training=10
+Loading weights from /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+DefensiveApproxQAgent (index 2): lrate=0.01, epsilon=0.1, discount=0.9, num_training=10
+
+Blue team baseline_team with {'num_training': 10}:
+Loading agent team: /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/pacman-contest/src/contest/baseline_team.py
+	Arguments: {'num_training': 10}
+{'display': <contest.text_display.NullGraphics object at 0x7f2f78fdac40>, 'red_team_name': 'Red', 'blue_team_name': 'Blue', 'agents': [<my_team.OffensiveApproxQAgent object at 0x7f2f78fdae80>, <baseline_team.OffensiveReflexAgent object at 0x7f2f78ecf340>, <my_team.DefensiveApproxQAgent object at 0x7f2f78ec0c70>, <baseline_team.DefensiveReflexAgent object at 0x7f2f78ecf370>], 'layouts': [<contest.layout.Layout object at 0x7f2f78ecf0a0>, <contest.layout.Layout object at 0x7f2f78ecf310>, <contest.layout.Layout object at 0x7f2f78ecf3a0>, <contest.layout.Layout object at 0x7f2f78ecf3d0>, <contest.layout.Layout object at 0x7f2f78ecf5b0>, <contest.layout.Layout object at 0x7f2f78ecf6a0>, <contest.layout.Layout object at 0x7f2f78ecf790>, <contest.layout.Layout object at 0x7f2f78ecf880>, <contest.layout.Layout object at 0x7f2f78ecf970>, <contest.layout.Layout object at 0x7f2f78ecfa60>, <contest.layout.Layout object at 0x7f2f78ecfb50>, <contest.layout.Layout object at 0x7f2f78ecfc40>, <contest.layout.Layout object at 0x7f2f78ecfd30>], 'length': 1200, 'num_games': 13, 'num_training': 10, 'record': False, 'catch_exceptions': False, 'delay_step': 0.03, 'match_id': 0, 'contest_name': 'default'}
+Playing 10 training games
+Blue team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': -0.09572693978420703, 'successor_score': 1.0279058399964898, 'ghosts_1_step_away': -5.323968282418427, 'distance_to_ghost': 1.00409517794386, 'distance_to_food': -1.014559018288796, 'is_home': 2.384599987411764}
+OffensiveApproxQAgent TRAIN - Reward: -7.950000000000108
+OffensiveApproxQAgent TRAIN - Accumulated reward: -7.950000000000108
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.6941869236945875, 'num_invaders': -0.9361346844297128, 'distance_to_middle': -1.0013554024509506, 'distance_to_invader': -0.9999074503042965, 'scared_distance': 1.0}
+DefensiveApproxQAgent TRAIN - Reward: 34.0
+DefensiveApproxQAgent TRAIN - Accumulated reward: 34.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': -0.16362635935199685, 'successor_score': 0.9946157490549633, 'ghosts_1_step_away': -5.516390886022812, 'distance_to_ghost': 1.0058093712214207, 'distance_to_food': -1.020132530468503, 'is_home': 2.480133465172842}
+OffensiveApproxQAgent TRAIN - Reward: -17.950000000000138
+OffensiveApproxQAgent TRAIN - Accumulated reward: -25.900000000000304
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.6050709665986856, 'num_invaders': -0.9439635912082006, 'distance_to_middle': -1.004851003137127, 'distance_to_invader': -1.0004731030943517, 'scared_distance': 1.0}
+DefensiveApproxQAgent TRAIN - Reward: 9
+DefensiveApproxQAgent TRAIN - Accumulated reward: 43.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Blue team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': 0.19385243225064494, 'successor_score': 0.9741458410598914, 'ghosts_1_step_away': -5.552329673663693, 'distance_to_ghost': 1.009844908185229, 'distance_to_food': -1.0221772373389981, 'is_home': 2.740495096019245}
+OffensiveApproxQAgent TRAIN - Reward: 30.94999999999991
+OffensiveApproxQAgent TRAIN - Accumulated reward: 5.049999999999574
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.2853419477607381, 'num_invaders': -0.9111812271151691, 'distance_to_middle': -1.010893790937045, 'distance_to_invader': -1.0005717723668899, 'scared_distance': 1.0004276319609637}
+DefensiveApproxQAgent TRAIN - Reward: -20
+DefensiveApproxQAgent TRAIN - Accumulated reward: 23.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': -0.04203228426731637, 'successor_score': 1.0089935230140512, 'ghosts_1_step_away': -5.796989661784151, 'distance_to_ghost': 1.010700066352288, 'distance_to_food': -1.0308168268785045, 'is_home': 2.8123668730505385}
+OffensiveApproxQAgent TRAIN - Reward: -24.950000000000163
+OffensiveApproxQAgent TRAIN - Accumulated reward: -19.900000000000546
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.4263319742729198, 'num_invaders': -0.9108972404629109, 'distance_to_middle': -1.0112976909131988, 'distance_to_invader': -1.0005685485765619, 'scared_distance': 1.0004276319609637}
+DefensiveApproxQAgent TRAIN - Reward: 24
+DefensiveApproxQAgent TRAIN - Accumulated reward: 47.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': -0.018419906923558327, 'successor_score': 1.013481528185828, 'ghosts_1_step_away': -5.789702373344764, 'distance_to_ghost': 1.011246118533979, 'distance_to_food': -1.0358278093284012, 'is_home': 2.9235992741140615}
+OffensiveApproxQAgent TRAIN - Reward: -14.950000000000045
+OffensiveApproxQAgent TRAIN - Accumulated reward: -34.850000000000676
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.622057395896993, 'num_invaders': -0.9002090202563203, 'distance_to_middle': -1.012000980856383, 'distance_to_invader': -1.0005659250586671, 'scared_distance': 1.0004276319609637}
+DefensiveApproxQAgent TRAIN - Reward: 34
+DefensiveApproxQAgent TRAIN - Accumulated reward: 81.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': 0.31997699971584137, 'successor_score': 1.0326069771858304, 'ghosts_1_step_away': -5.666523493842474, 'distance_to_ghost': 1.013891776315659, 'distance_to_food': -1.0375377305127895, 'is_home': 3.0826225799738087}
+OffensiveApproxQAgent TRAIN - Reward: 21.749999999999954
+OffensiveApproxQAgent TRAIN - Accumulated reward: -13.100000000000538
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.35689662761162305, 'num_invaders': -0.8828192793401934, 'distance_to_middle': -1.0168257772038791, 'distance_to_invader': -1.0006783610197423, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TRAIN - Reward: -15
+DefensiveApproxQAgent TRAIN - Accumulated reward: 66.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Blue team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': 0.09963877692690859, 'successor_score': 0.9414368168902636, 'ghosts_1_step_away': -5.809501578890816, 'distance_to_ghost': 1.013973973686418, 'distance_to_food': -1.0473855226525097, 'is_home': 3.139527334424582}
+OffensiveApproxQAgent TRAIN - Reward: -19.950000000000017
+OffensiveApproxQAgent TRAIN - Accumulated reward: -33.05000000000044
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.2088782248968115, 'num_invaders': -0.8931947421102427, 'distance_to_middle': -1.022869020670989, 'distance_to_invader': -1.00099106201638, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TRAIN - Reward: -11
+DefensiveApproxQAgent TRAIN - Accumulated reward: 55.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Blue team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': 0.04982138356553377, 'successor_score': 0.9297898061686468, 'ghosts_1_step_away': -5.966967889042378, 'distance_to_ghost': 1.015134341064744, 'distance_to_food': -1.0529256910666678, 'is_home': 3.2143241579037456}
+OffensiveApproxQAgent TRAIN - Reward: -15.950000000000085
+OffensiveApproxQAgent TRAIN - Accumulated reward: -49.00000000000008
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.41164459624392036, 'num_invaders': -0.8508185733137926, 'distance_to_middle': -1.0232443037621353, 'distance_to_invader': -1.0008057363005207, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TRAIN - Reward: 26
+DefensiveApproxQAgent TRAIN - Accumulated reward: 81.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': 0.09045758759738336, 'successor_score': 0.8549749483916825, 'ghosts_1_step_away': -6.069782487833576, 'distance_to_ghost': 1.0167756536100752, 'distance_to_food': -1.0578867930792097, 'is_home': 3.3726915317041564}
+OffensiveApproxQAgent TRAIN - Reward: 8.049999999999851
+OffensiveApproxQAgent TRAIN - Accumulated reward: -40.94999999999955
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.3270469857260896, 'num_invaders': -0.924909305075428, 'distance_to_middle': -1.0240451983405143, 'distance_to_invader': -1.0011684757048114, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TRAIN - Reward: -2
+DefensiveApproxQAgent TRAIN - Accumulated reward: 79.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+OffensiveApproxQAgent TRAIN - weights: {'bias': -0.017648346623348417, 'successor_score': 0.8336013824198196, 'ghosts_1_step_away': -6.199697908843171, 'distance_to_ghost': 1.0170842087032685, 'distance_to_food': -1.063355587108752, 'is_home': 3.462681698809274}
+OffensiveApproxQAgent TRAIN - Reward: -13.950000000000031
+OffensiveApproxQAgent TRAIN - Accumulated reward: -54.899999999998926
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/offensive_weights.json
+DefensiveApproxQAgent TRAIN - weights: {'bias': 0.33434890534158856, 'num_invaders': -0.9309632891406938, 'distance_to_middle': -1.024666847747469, 'distance_to_invader': -1.0012439003814695, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TRAIN - Reward: 8
+DefensiveApproxQAgent TRAIN - Accumulated reward: 87.0
+Saved weights to /home/mvelasco/proton-drive/obsidian-notes/006 1st term/Artificial Intelligence/pacman-agent/defensive_weights.json
+Red team starts
+Time is up.
+The Red team wins by 12 points.
+OffensiveApproxQAgent TEST - weights: {'bias': -0.017648346623348417, 'successor_score': 0.8336013824198196, 'ghosts_1_step_away': -6.199697908843171, 'distance_to_ghost': 1.0170842087032685, 'distance_to_food': -1.063355587108752, 'is_home': 3.462681698809274}
+OffensiveApproxQAgent TEST - Reward: -10.950000000000106
+OffensiveApproxQAgent TEST - Accumulated reward: -10.950000000000106
+DefensiveApproxQAgent TEST - weights: {'bias': 0.33434890534158856, 'num_invaders': -0.9309632891406938, 'distance_to_middle': -1.024666847747469, 'distance_to_invader': -1.0012439003814695, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TEST - Reward: 5
+DefensiveApproxQAgent TEST - Accumulated reward: 5.0
+Red team starts
+Time is up.
+The Red team wins by 9 points.
+OffensiveApproxQAgent TEST - weights: {'bias': -0.017648346623348417, 'successor_score': 0.8336013824198196, 'ghosts_1_step_away': -6.199697908843171, 'distance_to_ghost': 1.0170842087032685, 'distance_to_food': -1.063355587108752, 'is_home': 3.462681698809274}
+OffensiveApproxQAgent TEST - Reward: -11.95000000000007
+OffensiveApproxQAgent TEST - Accumulated reward: -22.900000000000215
+DefensiveApproxQAgent TEST - weights: {'bias': 0.33434890534158856, 'num_invaders': -0.9309632891406938, 'distance_to_middle': -1.024666847747469, 'distance_to_invader': -1.0012439003814695, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TEST - Reward: 5
+DefensiveApproxQAgent TEST - Accumulated reward: 10.0
+Blue team starts
+Time is up.
+The Red team wins by 17 points.
+OffensiveApproxQAgent TEST - weights: {'bias': -0.017648346623348417, 'successor_score': 0.8336013824198196, 'ghosts_1_step_away': -6.199697908843171, 'distance_to_ghost': 1.0170842087032685, 'distance_to_food': -1.063355587108752, 'is_home': 3.462681698809274}
+OffensiveApproxQAgent TEST - Reward: 19.049999999999965
+OffensiveApproxQAgent TEST - Accumulated reward: -3.8500000000003904
+DefensiveApproxQAgent TEST - weights: {'bias': 0.33434890534158856, 'num_invaders': -0.9309632891406938, 'distance_to_middle': -1.024666847747469, 'distance_to_invader': -1.0012439003814695, 'scared_distance': 1.0007149988565676}
+DefensiveApproxQAgent TEST - Reward: 5
+DefensiveApproxQAgent TEST - Accumulated reward: 15.0
+Average Score: 12.666666666666666
+Scores:        12, 9, 17
+Red Win Rate:  3/3 (1.00)
+Blue Win Rate: 0/3 (0.00)
+Record:        Red, Red, Red
+
+Total Time Game: 498.0
